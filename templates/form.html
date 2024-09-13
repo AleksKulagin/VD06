@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"> <!-- Установливаем кодировку документа -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Настройки для мобильных устройств -->
+    <title>Анкета пользователя</title> <!-- Заголовок страницы -->
+    <style>
+        /* Инлайн стили, которые будут применены к элементам на странице */
+        body {
+            font-family: Arial, sans-serif; /* Шрифт для всего тела документа */
+            margin: 20px; /* Отступы вокруг содержимого */
+        }
+        form {
+            margin-bottom: 20px; /* Отступ снизу от формы */
+        }
+        input, select {
+            padding: 10px; /* Внутренние отступы для полей ввода */
+            margin: 5px 0; /* Отступы между полями ввода */
+            width: 100%; /* Поля ввода занимают полную ширину контейнера */
+            max-width: 300px; /* Максимальная ширина полей ввода */
+        }
+        button {
+            padding: 10px; /* Внутренние отступы для кнопки */
+            background-color: #007BFF; /* Цвет фона кнопки */
+            color: white; /* Цвет текста на кнопке */
+            border: none; /* Без рамки вокруг кнопки */
+            cursor: pointer; /* Изменение курсора при наведении */
+        }
+        button:hover {
+            background-color: #0056b3; /* Цвет фона кнопки при наведении */
+        }
+    </style>
+</head>
+<body>
+    <h1>Анкета пользователя</h1> <!-- Заголовок страницы -->
+
+    <form method="POST"> <!-- Определение формы, отправляющей данные методом POST -->
+        <input type="text" name="name" placeholder="Ваше имя" required> <!-- Поле для имени -->
+        <input type="text" name="city" placeholder="Город" required> <!-- Поле для города -->
+        <input type="text" name="hobby" placeholder="Хобби" required> <!-- Поле для хобби -->
+        <input type="number" name="age" placeholder="Возраст" required> <!-- Поле для возраста -->
+        <button type="submit">Отправить</button> <!-- Кнопка для отправки формы -->
+    </form>
+
+    {% if user_data %} <!-- Проверка, есть ли введенные данные -->
+        <h2>Введенные данные:</h2> <!-- Заголовок для секции с результатами -->
+        <p><strong>Имя:</strong> {{ user_data.name }}</p> <!-- Отображение имени пользователя -->
+        <p><strong>Город:</strong> {{ user_data.city }}</p> <!-- Отображение города -->
+        <p><strong>Хобби:</strong> {{ user_data.hobby }}</p> <!-- Отображение хобби -->
+        <p><strong>Возраст:</strong> {{ user_data.age }}</p> <!-- Отображение возраста -->
+    {% endif %} <!-- Конец проверки на введенные данные -->
+</body>
+</html>
